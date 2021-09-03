@@ -6,7 +6,7 @@ function xNext = NewtonRaphsonStep(x, fPrime, fDoublePrime)
     xNext = x - fPrime/fDoublePrime;
     if abs(xNext) == inf
         xNext = NaN;
-        disp('Error: f" = 0, can not divide by zero! Check 3rd argument (fDoublePrime) to NewtonRaphsonStep()');
+        error('Error: f" = 0, can not divide by zero! Check 3rd argument (fDoublePrime) to NewtonRaphsonStep()');
     end
 end
 
