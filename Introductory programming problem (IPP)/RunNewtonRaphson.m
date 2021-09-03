@@ -26,7 +26,9 @@ function iterationValues = NewtonRaphson(polynomialCoefficients, startingPoint, 
         error = abs(xNext - x_i);
         x_i = xNext;
         if error < tolerance
-            iterationValues(i) = x_i
+            iterationValues(i) = x_i;
+            disp("Last iteration value: ")
+            disp(x_i)
             return
         end
         i = i + 1;

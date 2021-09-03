@@ -6,7 +6,7 @@
 %
 
 polynomialCoefficients = [10 -2 -1 1];
-startingPoint = 2;
+startingPoint = 100000;
 tolerance = 0.0001;
 iterationValues = RunNewtonRaphson(polynomialCoefficients, startingPoint, tolerance);
 PlotIterations(polynomialCoefficients,iterationValues);
