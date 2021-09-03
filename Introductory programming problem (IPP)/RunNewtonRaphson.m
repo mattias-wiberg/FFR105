@@ -15,22 +15,18 @@ function iterationValues = NewtonRaphson(polynomialCoefficients, startingPoint, 
     fPrimCoefficitents = DifferentiatePolynomial(polynomialCoefficients, 1);
     fBisCoefficitents = DifferentiatePolynomial(polynomialCoefficients, 2);
     i = 1;
-    x = startingPoint;
+    x_i = startingPoint;
     % Do while loop
     while 1
-        iterationValues(i) = x;
-        fPrimX = GetPolynomialValue(x, fPrimCoefficitents);
-        fBisX = GetPolynomialValue(x, fBisCoefficitents);
+        iterationValues(i) = x_i;
+        fPrimX = GetPolynomialValue(x_i, fPrimCoefficitents);
+        fBisX = GetPolynomialValue(x_i, fBisCoefficitents);
         
-        xNext = StepNewtonRaphson(x, fPrimX, fBisX);
-        if isnan(xNext)
-            return
-        end
-        
-        error = abs(xNext - x);
-        x = xNext;
+        xNext = StepNewtonRaphson(x_i, fPrimX, fBisX);
+        error = abs(xNext - x_i);
+        x_i = xNext;
         if error < tolerance
-            iterationValues(i) = x
+            iterationValues(i) = x_i
             return
         end
         i = i + 1;

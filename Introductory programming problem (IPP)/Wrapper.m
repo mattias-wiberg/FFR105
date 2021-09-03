@@ -9,7 +9,7 @@ clear
 
 polynomialCoefficients = [10 -2 -1 1];
 %polynomialCoefficients = [5 0 0 1];
-polynomialCoefficients = [4 0 5 2];
+%polynomialCoefficients = [4 0 5 2];
 startingPoint = 2;
 tolerance = 0.0001;
 iterationValues = RunNewtonRaphson(polynomialCoefficients, startingPoint, tolerance);
