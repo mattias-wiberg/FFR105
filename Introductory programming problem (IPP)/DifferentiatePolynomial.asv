@@ -8,7 +8,7 @@ function derivativeCoefficients = DifferentiatePolynomial(polynomialCoefficients
             derivativeCoefficients(j) = derivativeCoefficients(j)*(j-i);
         end
     end
-    derivativeCoefficients = derivativeCoefficients(derivativeOrder+1:end);
+    derivativeCoefficients = derivativeCoefficients()
     %derivativeCoefficients = TrimZeros(derivativeCoefficients);
 end
 

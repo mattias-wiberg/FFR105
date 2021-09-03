@@ -16,3 +16,8 @@ clc
 assert(GetPolynomialValue(0.82, [1,2,3,4,5]) == 1+0.82*2+0.82^2*3+0.82^3*4+0.82^4*5)
 assert(GetPolynomialValue(0, [2,3]) == 2)
 assert(GetPolynomialValue(1, [2,3,5,1]) == 2+3+5+1)
+assert(sum(DifferentiatePolynomial([1,2,3], 0) == [1,2,3])==3)
+assert(sum(DifferentiatePolynomial([1,2,3], 1) == [2,6])==2)
+assert(DifferentiatePolynomial([1,2,3], 2) == [6])
+DifferentiatePolynomial([1,2,3], 3)
+
