@@ -25,12 +25,12 @@ assert(all(DifferentiatePolynomial([1,2,3], 4) == []))
 assert(all(DifferentiatePolynomial([5,23,31,4,5], 2) == [62,24,60]))
 assert(all(DifferentiatePolynomial([1,1,0,2,3], 1) == [1,0,6,12]))
 assert(all(DifferentiatePolynomial([1,1,0,2,3], 2) == [0,12,36]))
-assert(all(DifferentiatePolynomial([], 0) == []))
+assert(all(DifferentiatePolynomial([1,1,0,2,3], 2) == [0,12,36]))
 
 assert(StepNewtonRaphson(0, 2, 1) == -2);
 assert(StepNewtonRaphson(1, 1, 2) == 0.5);
 assert(isnan(StepNewtonRaphson(1, 1, 0)));
-clc
-PlotIterations([1,3,4], [1,2])
+
+PlotIterations([1,3,4], -10000:10000)
 
 

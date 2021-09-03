@@ -5,7 +5,7 @@ function value = GetPolynomialValue(x, polynomialCoefficients)
     i = 0;
     value = 0;
     for coefficient = polynomialCoefficients
-        value = value + coefficient * x^i;
+        value = value + coefficient * x.^i;
         i = i + 1;
     end
 end
