@@ -3,18 +3,15 @@
 
 function derivativeCoefficients = DifferentiatePolynomial(polynomialCoefficients, derivativeOrder)
     derivativeCoefficients = polynomialCoefficients;
+    % Derivate, order amount of times
     for i = [1:derivativeOrder]
-        for j = [1:length(polynomialCoefficients)]
+        % Start from derivativeOrder + 1 since of index starting at 1 and 
+        % coefficients before will be 0 by construction. (*)
+        for j = [derivativeOrder+1:length(polynomialCoefficients)] 
+            % Multiply current coefficient with current exponent (j-i)
             derivativeCoefficients(j) = derivativeCoefficients(j)*(j-i);
         end
     end
+    % Only include the calculated coefficients because of (*)
     derivativeCoefficients = derivativeCoefficients(derivativeOrder+1:end);
-    %derivativeCoefficients = TrimZeros(derivativeCoefficients);
-end
-
-% This method trims the zeros of the vector on either end. And returns
-% the trimmed vector.
-function trimmedVector = TrimZeros(vectorToTrim)
-    nonZeroIndexes = find(vectorToTrim);
-    trimmedVector = vectorToTrim(nonZeroIndexes(1):nonZeroIndexes(length(nonZeroIndexes)));
 end
