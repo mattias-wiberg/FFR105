@@ -12,17 +12,24 @@
 % The values below are suggestions - you may experiment with
 % other values of eta and other (increasing) sequences of the
 % µ parameter (muValues).
-
+clear all;
+clc;
 
 muValues = [1 10 100 1000];
 eta = 0.0001;
-xStart =  [Specify as a vector with two components, see Step 3 of the problem formulation];
+xStart =  [1 2];
 gradientTolerance = 1E-6;
+xValues = zeros(2, length(muValues));
 
 for i = 1:length(muValues)
  mu = muValues(i);
  x = RunGradientDescent(xStart,mu,eta,gradientTolerance);
+ xValues(:,i) = x; 
  sprintf('x(1) = %3f, x(2) = %3f mu = %d',x(1),x(2),mu)
 end
-
-
+subplot(2,1,1)
+loglog(muValues, xValues(1,:))
+title('x_1')
+subplot(2,1,2)
+loglog(muValues, xValues(2,:))
+title('x_2')
