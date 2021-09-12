@@ -1,5 +1,5 @@
 function [maximumFitness, bestVariableValues] = RunFunctionOptimization(populationSize, numberOfGenes, numberOfVariables, maximumVariableValue, ...
-tournamentSize, tournamentProbability, crossoverProbability, mutationProbability, numberOfGenerations);
+tournamentSize, tournamentProbability, crossoverProbability, mutationProbability, numberOfGenerations)
 
  format long
 
