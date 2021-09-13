@@ -7,8 +7,8 @@ function x = DecodeChromosome(chromosome,numberOfVariables,maximumVariableValue)
     for i = 1:numberOfVariables
         for j = 1:numberOfGenesPerVariable
             % Offset j with the total amount of previous variables genes
-            x(1) = x(1) + chromosome((i-1)*numberOfGenesPerVariable+j)*2^(-j);
+            x(i) = x(i) + chromosome((i-1)*numberOfGenesPerVariable+j)*2^(-j);
         end
-        x(1) = -maximumVariableValue + 2*maximumVariableValue*x(1)/(1 - 2^(-numberOfGenesPerVariable));
+        x(i) = -maximumVariableValue + 2*maximumVariableValue*x(i)/(1 - 2^(-numberOfGenesPerVariable));
     end
 end
