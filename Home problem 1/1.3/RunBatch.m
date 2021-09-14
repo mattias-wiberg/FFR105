@@ -45,7 +45,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Add more results summaries here (pMut < 0.02) ...
-loglog(mutationProbabilities, median(maximumFitnesses))
+semilogy(mutationProbabilities, median(maximumFitnesses))
 [mutationProbabilities' median(maximumFitnesses)']
 %average = mean(maximumFitnesses);
 %median = median(maximumFitnesses);
