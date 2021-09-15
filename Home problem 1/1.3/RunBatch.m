@@ -1,3 +1,6 @@
+clear;
+clc;
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameter specifications
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,7 +19,6 @@ crossoverProbability = 0.8;        % Do NOT change
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Batch runs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % Define more runs here (pMut < 0.02) ...
 
 mutationProbabilities = [0, 0.02:0.05:1, 1];

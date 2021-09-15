@@ -8,6 +8,7 @@
 
 function iterationValues = NewtonRaphson(polynomialCoefficients, startingPoint, tolerance)
     if isempty(DifferentiatePolynomial(polynomialCoefficients, 2))
+        iterationValues = NaN;
         error('Too low polynominal degree! The polynomial degree has to be atleast 2');
         return
     end
@@ -16,21 +17,22 @@ function iterationValues = NewtonRaphson(polynomialCoefficients, startingPoint, 
     fBisCoefficitents = DifferentiatePolynomial(polynomialCoefficients, 2);
     i = 1;
     x_i = startingPoint;
-    % Do while loop
-    while 1
-        iterationValues(i) = x_i;
+    error = tolerance + 1;
+    iterationValues(1) = x_i;
+    
+    while error > tolerance
         fPrimX = GetPolynomialValue(x_i, fPrimCoefficitents);
         fBisX = GetPolynomialValue(x_i, fBisCoefficitents);
         
         xNext = StepNewtonRaphson(x_i, fPrimX, fBisX);
-        error = abs(xNext - x_i);
-        x_i = xNext;
-        if error < tolerance
-            iterationValues(i) = x_i;
-            disp("Last iteration value: ")
-            disp(x_i)
+        if isnan(xNext)
             return
         end
+        error = abs(xNext - x_i);
+        x_i = xNext;
         i = i + 1;
+        iterationValues(i) = x_i;
     end
+    disp("Last iteration value: ")
+    disp(x_i)
     
