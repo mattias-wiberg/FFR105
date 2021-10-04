@@ -10,15 +10,17 @@ function tabuList = GeneratePath(pheromoneLevel, visibility, alpha, beta)
         notInTabuList = setdiff(cities, tabuList);
         normalizationFactor = sum((pheromoneLevel(notInTabuList,currentNodeIndex).^alpha).*...
             visibility(notInTabuList,currentNodeIndex).^beta);
+        
+        %Roulette wheel selection
         randomSelection = rand;
         previousProbability = 0;
 
         for i = notInTabuList
+            previousProbability = previousProbability + pheromoneLevel(i,currentNodeIndex)^alpha*...
+                visibility(i,currentNodeIndex)^beta/normalizationFactor;
             if previousProbability > randomSelection
                 break
             end
-            previousProbability = previousProbability + pheromoneLevel(i,currentNodeIndex)^alpha*...
-                visibility(i,currentNodeIndex)^beta/normalizationFactor;
         end
     end
 end
