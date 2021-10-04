@@ -16,7 +16,7 @@ numberOfCities = length(cityLocation);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-numberOfAnts = 50;  %% Changes allowed
+numberOfAnts = 20;  %% Changes allowed
 alpha = 1.0;        %% Changes allowed
 beta = 3.0;         %% Changes allowed
 rho = 0.3;          %% Changes allowed
@@ -32,8 +32,8 @@ targetPathLength = 103;
 range = [0 20 0 20];
 tspFigure = InitializeTspPlot(cityLocation, range);
 connection = InitializeConnections(cityLocation);
-pheromoneLevel = InitializePheromoneLevels(numberOfCities, tau0); % To do: Write the InitializePheromoneLevels
-visibility = GetVisibility(cityLocation);                         % To do: write the GetVisibility function
+pheromoneLevel = InitializePheromoneLevels(numberOfCities, tau0); 
+visibility = GetVisibility(cityLocation);                         
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Main loop
