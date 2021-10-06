@@ -1,4 +1,4 @@
-function plot = LogContour(f@(x,y),range,a)
+function plot = LogContour(f,range,a)
     x = linspace(range(1),range(2),100);
     y = x;
 
