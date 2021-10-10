@@ -14,7 +14,7 @@ c2 = 2;
 w = 1.4; % as starting value
 wMin = 0.4;
 beta = 0.98; % reduction
-maxVelocity = 5;
+maxVelocity = 0.5;
 steps = 10000;
 
 uniqueGlobalBestPoints = zeros(4,numberOfVariables);
@@ -40,13 +40,7 @@ while AmountOfUniqueBestPoints < 4
         if minValue < f(globalBestPosition(1), globalBestPosition(2))
             globalBestPosition = particlePositions(minValueIndex, :);
         end
-        
-        q = rand;
-        r = rand;
-        particleVelocities = w*particleVelocities +...
-            c1*q*((bestPositions-particlePositions)/deltaT) +...
-            c2*r*((globalBestPosition-particlePositions)/deltaT);
-        particleVelocities(particleVelocities > maxVelocity) = maxVelocity;
+        particleVelocities = UpdateVelocities(particleVelocities,w,c1,c2,maxVelocity,deltaT,bestPositions,particlePositions,globalBestPosition);
 
         particlePositions = particlePositions + particleVelocities*deltaT;
 
@@ -55,10 +49,12 @@ while AmountOfUniqueBestPoints < 4
         end
     end
     
-    if all(round(uniqueGlobalBestPoints, 5) ~= round(globalBestPosition, 5))
+    if all(round(uniqueGlobalBestPoints, 3) ~= round(globalBestPosition, 3))
         AmountOfUniqueBestPoints = AmountOfUniqueBestPoints + 1;
         uniqueGlobalBestPoints(AmountOfUniqueBestPoints,:) = globalBestPosition;
-        disp(sprintf('Iteration %d, found minima: x = %.5f, y = %.5f',iteration,globalBestPosition(1),globalBestPosition(1)));
+        disp(sprintf('Iteration %d, found minima: x = %.5f, y = %.5f, f(x,y) = %.5f',...
+            iteration,globalBestPosition(1),globalBestPosition(2),...
+            f(globalBestPosition(1),globalBestPosition(2))));
         
         scatter(globalBestPosition(1),globalBestPosition(2), [], 'k')
     end
