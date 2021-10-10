@@ -11,11 +11,11 @@ populationSize = 100;
 numberOfVariables = 3;
 minNumberOfInstructions = 3;
 maxNumberOfInstructions = 10;
-chromosomePenaltySize = 150;
+chromosomePenaltySize = 160;
 tournamentSize = 5;
 tournamentProbability = 0.75;
 crossoverProbability = 0.2;
-mutationProbability = 0.04;
+mutationProbability = 0.8;
 numberOfGenerations = 9999;
 
  population = InitializePopulation(populationSize,minNumberOfInstructions,maxNumberOfInstructions,...
