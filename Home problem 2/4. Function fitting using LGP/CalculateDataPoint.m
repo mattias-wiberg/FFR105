@@ -4,7 +4,7 @@ function yHat = CalculateDataPoint(x, registers, individual, cMax)
 
     for j = 1:length(chromosome)/4
         instructionStartIndex = ((j-1) * 4)+1;
-        registers = CalculateInstruction(chromosome(instructionStartIndex:instructionStartIndex+3), registers, cMax);
+        registers(chromosome(instructionStartIndex+1)) = CalculateInstruction(chromosome(instructionStartIndex:instructionStartIndex+3), registers, cMax);
     end
     
     yHat = registers(1);

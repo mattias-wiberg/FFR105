@@ -1,25 +1,23 @@
-function newRegisters = CalculateInstruction(instruction, registers, cMax)
+function result = CalculateInstruction(instruction, registers, cMax)
     operator = instruction(1);
-    destinationRegister = instruction(2);
-    operand1 = instruction(3);
-    operand2 = instruction(4);
-    newRegisters = registers;
+    operand1 = registers(instruction(3));
+    operand2 = registers(instruction(4));
     
     switch operator
         case 1
-            newRegisters(destinationRegister) = operand1 + operand2;
+            result = operand1 + operand2;
             return
         case 2
-            newRegisters(destinationRegister) = operand1 - operand2;
+            result = operand1 - operand2;
             return
         case 3
-            newRegisters(destinationRegister) = operand1 * operand2;
+            result = operand1 * operand2;
             return
         case 4
             if operand2 == 0
-                newRegisters(destinationRegister) = cMax;
+                result = cMax;
             else
-                newRegisters(destinationRegister) = operand1 / operand2;
+                result = operand1 / operand2;
             end
             return
     end
