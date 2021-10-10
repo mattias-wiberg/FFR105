@@ -5,7 +5,7 @@ instructionSize = 4;
 
 for i = 1:populationSize
    numberOfInstructions = randi([minNumberOfInstructions maxNumberOfInstructions]);
-   chromosome = zeros(numberOfInstructions*instructionSize, 1);
+   chromosome = zeros(1,numberOfInstructions*instructionSize);
    for j = 1:numberOfInstructions
        instructionStartIndex = ((j-1) * instructionSize)+1;
        chromosome(instructionStartIndex) = randi(numberOfOperators);

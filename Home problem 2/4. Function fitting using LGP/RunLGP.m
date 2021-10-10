@@ -12,4 +12,4 @@ minNumberOfInstructions = 3;
 maxNumberOfInstructions = 10;
 
 population = InitializePopulation(populationSize,minNumberOfInstructions,maxNumberOfInstructions,numberOfVariables,numberOfConstants,numberOfOperators);
-
+Cross(population(1), population(2));
