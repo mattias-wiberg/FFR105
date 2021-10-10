@@ -1,4 +1,4 @@
-function yHat = EvaluateDataPoint(x, registers, individual, cMax)
+function yHat = CalculateDataPoint(x, registers, individual, cMax)
     chromosome = individual.Chromosome;
     registers(1) = x;
 

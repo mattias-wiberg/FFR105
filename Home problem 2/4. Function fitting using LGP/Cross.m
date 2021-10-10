@@ -3,8 +3,8 @@ function newIndividuals = Cross(induvidual1, induvidual2)
     chromosome1 = induvidual1.Chromosome;
     chromosome2 = induvidual2.Chromosome;
     instructionSize = 4;
-    numberOfInstructions1 = length(chromosome1)/instructionSize;
     
+    numberOfInstructions1 = length(chromosome1)/instructionSize;
     points1 = randi([0 numberOfInstructions1], 2, 1);
     points1 = sort(points1*4);
     
