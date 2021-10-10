@@ -11,8 +11,6 @@ alpha = 1; % ususally 1
 deltaT = 1; 
 c1 = 2; % Usually 2
 c2 = 2;
-q = 1;
-r = 1;
 w = 1.4; % as starting value
 wMin = 0.4;
 beta = 0.98; % reduction
@@ -42,7 +40,9 @@ while AmountOfUniqueBestPoints < 4
         if minValue < f(globalBestPosition(1), globalBestPosition(2))
             globalBestPosition = particlePositions(minValueIndex, :);
         end
-
+        
+        q = rand;
+        r = rand;
         particleVelocities = w*particleVelocities +...
             c1*q*((bestPositions-particlePositions)/deltaT) +...
             c2*r*((globalBestPosition-particlePositions)/deltaT);

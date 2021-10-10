@@ -37,7 +37,7 @@ elseif (iDataSet == 2)                            % Validation
  if (iSlope == 1) 
    alpha = 6 - sin(x/100) + cos(sqrt(3)*x/50);    % You may modify this!
 
- %%
+ %% 
  %% Insert the remaining 3 validation set slopes here
  %% 
 
