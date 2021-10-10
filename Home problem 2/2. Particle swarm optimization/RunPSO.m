@@ -15,7 +15,7 @@ w = 1.4; % as starting value
 wMin = 0.4;
 beta = 0.98; % reduction
 maxVelocity = 5;
-moves = 10000;
+steps = 10000;
 
 uniqueGlobalBestPoints = zeros(4,numberOfVariables);
 LogContour(f, [-5 5], 0.01);
@@ -30,7 +30,7 @@ while AmountOfUniqueBestPoints < 4
     globalBestPosition = particlePositions(1,:);
     bestPositions = particlePositions;
     
-    for i = 1:moves
+    for i = 1:steps
         bestPositionsFitness = f(bestPositions(1,:), bestPositions(2,:));
         currentFitness = f(particlePositions(:,1), particlePositions(:,2));
         betterFitnessIndexes = currentFitness < bestPositionsFitness;
