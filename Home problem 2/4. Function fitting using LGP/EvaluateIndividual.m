@@ -1,7 +1,7 @@
 % First compute the function value, then compute the fitness
 % value; see also the problem formulation.
 
-function fitness = EvaluateIndividual(cMax, numberOfVariables, constants, dataPoints, individual)
+function fitness = EvaluateIndividual(cMax, chromosomePenaltySize, numberOfVariables, constants, dataPoints, individual)
     
     squareSum = 0;
     k = length(dataPoints);
@@ -11,10 +11,14 @@ function fitness = EvaluateIndividual(cMax, numberOfVariables, constants, dataPo
         x = dataPoints(i, 1);
         y = dataPoints(i, 2);
         
-        yHat = CalculateDataPoint(dataPoints(i, 1), registers, individual, cMax);
+        yHat = CalculateDataPoint(x, registers, individual, cMax);
         squareSum = squareSum + (yHat-y)^2;
     end
     
-    rmsError = sqrt(squareSum/k)
+    rmsError = sqrt(squareSum/k);
     fitness = 1/rmsError;
+    
+    if length(individual.Chromosome) > chromosomePenaltySize
+        fitness = fitness*chromosomePenaltySize/length(individual.Chromosome);
+    end
 end
