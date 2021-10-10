@@ -4,7 +4,7 @@ function yHat = EvaluateDataPoint(x, registers, individual, cMax)
     
     registers(1) = x;
 
-    for j = 1:length(instructions)
+    for j = 1:size(instructions,1)
         registers = CalculateInstruction(instructions(j,:), registers, cMax);
     end
     

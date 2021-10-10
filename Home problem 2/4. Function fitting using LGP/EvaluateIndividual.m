@@ -1,21 +1,20 @@
 % First compute the function value, then compute the fitness
 % value; see also the problem formulation.
 
-function fitness = EvaluateIndividual(dataPoints, numberOfVariables, constants, individual)
-    chromosome = individual.Chromosome;
-    instructions = reshape(chromosome, length(chromosome)/4, 4);
+function fitness = EvaluateIndividual(cMax, numberOfVariables, constants, dataPoints, individual)
     
-    yValues = 0;
-    for i = 1:length(dataPoints)
+    squareSum = 0;
+    k = length(dataPoints);
+    
+    for i = 1:k
         registers = [zeros(1, numberOfVariables) constants];
-        registers(1) = dataPoints(i, 1);
-    
-        for j = 1:length(instructions)
-            registers = CalculateInstruction(instructions(j));
-        end
-        sum =
+        x = dataPoints(i, 1);
+        y = dataPoints(i, 2);
+        
+        yHat = CalculateDataPoint(dataPoints(i, 1), registers, individual, cMax);
+        squareSum = squareSum + (yHat-y)^2;
     end
     
-    error = 
-    fitness = 1/r1;
+    rmsError = sqrt(squareSum/k)
+    fitness = 1/rmsError;
 end

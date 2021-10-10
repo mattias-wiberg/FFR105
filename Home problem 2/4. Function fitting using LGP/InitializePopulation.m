@@ -9,7 +9,8 @@ for i = 1:populationSize
    for j = 1:numberOfInstructions
        instructionStartIndex = ((j-1) * instructionSize)+1;
        chromosome(instructionStartIndex) = randi(numberOfOperators);
-       chromosome(instructionStartIndex + 1 : instructionStartIndex + 3) = randi(numberOfVariables, 3, 1);
+       chromosome(instructionStartIndex + 1) = randi(numberOfVariables);
+       chromosome(instructionStartIndex + 2 : instructionStartIndex + 3) = randi(numberOfVariables+numberOfConstants, 2, 1);
    end
    tmpIndividual = struct('Chromosome',chromosome);
    population = [population tmpIndividual];

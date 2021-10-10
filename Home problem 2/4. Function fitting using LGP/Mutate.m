@@ -1,11 +1,18 @@
-function mutatedIndividual = Mutate(individual, mutationProbability)
-
-    nGenes = size(individual,2);
+function mutatedIndividual = Mutate(individual, mutationProbability, numberOfConstants, numberOfVariables, numberOfOperators)
+    
+    chromosome = individual.Chromosome;
+    numberOfInstructions = chromosome/4;
     mutatedIndividual = individual;
-    for j = 1:nGenes
-        if (rand < mutationProbability)
-            mutatedIndividual(j) = 1-individual(j);
-        end
+    registerSize = numberOfVariables+numberOfConstants;
+    maxValuesForChromosome = [numberOfOperators numberOfVariables registerSize registerSize];
+    
+    for i = 1:numberOfInstructions
+       instructionStartIndex = ((i-1) * instructionSize)+1;
+       for j = 1:4
+           if rand < mutationProbability
+                chromosome(instructionStartIndex + (j-1)) = randi(maxValuesForChromosome(j));
+           end
+       end
     end
 
 end
