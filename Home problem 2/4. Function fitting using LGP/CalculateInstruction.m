@@ -17,7 +17,7 @@ function newRegisters = CalculateInstruction(instruction, registers, cMax)
             return
         case 4
             if operand2 == 0
-                newRegisters(destinationRegister) = cMax
+                newRegisters(destinationRegister) = cMax;
             else
                 newRegisters(destinationRegister) = operand1 / operand2;
             end
