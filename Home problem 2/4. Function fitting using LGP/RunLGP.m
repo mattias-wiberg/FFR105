@@ -1,4 +1,4 @@
-%clear;
+clear;
 clc;
 
 constants = [-1 1 3];
@@ -22,8 +22,8 @@ oldMaxFitness = 0;
 stagnated = 0;
 generation = 0;
 
-% population = InitializePopulation(populationSize,minNumberOfInstructions,maxNumberOfInstructions,...
-%    numberOfVariables,numberOfConstants,numberOfOperators);
+ population = InitializePopulation(populationSize,minNumberOfInstructions,maxNumberOfInstructions,...
+    numberOfVariables,numberOfConstants,numberOfOperators);
 while true
    if generation > 2000 && stagnated > 1
        if maximumFitness > 100
