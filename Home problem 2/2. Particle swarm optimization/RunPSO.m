@@ -21,9 +21,9 @@ uniqueGlobalBestPoints = zeros(4,numberOfVariables);
 LogContour(f, [-5 5], 0.01);
 hold on;
 
-AmountOfUniqueBestPoints = 0;
-iteration=1;
-while AmountOfUniqueBestPoints < 4
+amountOfUniqueBestPoints = 0;
+iteration = 1;
+while amountOfUniqueBestPoints < 4
     particlePositions = InitializePositions(numberOfParticles, numberOfVariables, xMin, xMax);
     particleVelocities = InitializeVelocities(numberOfParticles, numberOfVariables, xMin, xMax, alpha, deltaT);
 
@@ -50,8 +50,8 @@ while AmountOfUniqueBestPoints < 4
     end
     
     if all(round(uniqueGlobalBestPoints, 3) ~= round(globalBestPosition, 3))
-        AmountOfUniqueBestPoints = AmountOfUniqueBestPoints + 1;
-        uniqueGlobalBestPoints(AmountOfUniqueBestPoints,:) = globalBestPosition;
+        amountOfUniqueBestPoints = amountOfUniqueBestPoints + 1;
+        uniqueGlobalBestPoints(amountOfUniqueBestPoints,:) = globalBestPosition;
         disp(sprintf('Iteration %d, found minima: x = %.5f, y = %.5f, f(x,y) = %.5f',...
             iteration,globalBestPosition(1),globalBestPosition(2),...
             f(globalBestPosition(1),globalBestPosition(2))));
